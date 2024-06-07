@@ -31,7 +31,7 @@ A plataforma web é desenvolvida utilizando o framework Next.js, que permite a c
 
 -  **React:** Biblioteca JavaScript para construção de interfaces de usuário.
 
--  **SQLite:** Banco de dados relacional leve e eficiente, perfeito para aplicações web de menor escala.
+-  **Vercel Postgresql:** Banco de dados relacional leve e eficiente, perfeito para aplicações web de menor escala.
 
   
 
@@ -43,7 +43,7 @@ A plataforma web é desenvolvida utilizando o framework Next.js, que permite a c
 
 -  **Back-end:** Utilizando as funcionalidades de API routes do Next.js para criar endpoints que interagem com o banco de dados SQLite.
 
--  **Banco de Dados:** SQLite, que armazenará informações essenciais para a plataforma, como perfis de usuários, postagens, comentários e votos.
+-  **Banco de Dados:** Vercel Postgresql, que armazenará informações essenciais para a plataforma, como perfis de usuários, postagens, comentários e votos.
 
   
 
