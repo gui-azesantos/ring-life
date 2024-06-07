@@ -1,10 +1,10 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
-import { z } from "zod";
 import { auth } from "@/auth";
 import { db } from "@/db";
 import paths from "@/paths";
+import { revalidatePath } from "next/cache";
+import { z } from "zod";
 
 const createCommentSchema = z.object({
   content: z.string().min(3),
@@ -48,7 +48,7 @@ export async function createComment(
         content: result.data.content,
         postId: postId,
         parentId: parentId,
-        userId: session.user.id,
+        userId: session.user.email || "",
       },
     });
   } catch (err) {
