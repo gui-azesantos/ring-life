@@ -1,21 +1,24 @@
-'use server';
+"use server";
 
-import type { Topic } from '@prisma/client';
-import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
-import { z } from 'zod';
-import { auth } from '@/auth';
-import { db } from '@/db';
-import paths from '@/paths';
+import { auth } from "@/auth";
+import { db } from "@/db";
+import paths from "@/paths";
+import type { Topic } from "@prisma/client";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import { z } from "zod";
 
 const createTopicSchema = z.object({
   name: z
     .string()
     .min(3)
-    .regex(/[a-z-]/, {
-      message: 'Must be lowercase letters or dashes without spaces',
+    .regex(/^[a-zA-Z]+$/, {
+      message:
+        "Deve ser uma única palavra contendo apenas letras, números ou travessões, sem acentos",
     }),
-  description: z.string().min(10),
+  description: z.string().min(10, {
+    message: "Deve conter mais de 10 caracteres",
+  }),
 });
 
 interface CreateTopicFormState {
@@ -31,8 +34,8 @@ export async function createTopic(
   formData: FormData
 ): Promise<CreateTopicFormState> {
   const result = createTopicSchema.safeParse({
-    name: formData.get('name'),
-    description: formData.get('description'),
+    name: formData.get("name"),
+    description: formData.get("description"),
   });
 
   if (!result.success) {
@@ -45,7 +48,7 @@ export async function createTopic(
   if (!session || !session.user) {
     return {
       errors: {
-        _form: ['You must be signed in to do this.'],
+        _form: ["Você deve estar logado para criar um post."],
       },
     };
   }
@@ -68,12 +71,12 @@ export async function createTopic(
     } else {
       return {
         errors: {
-          _form: ['Something went wrong'],
+          _form: ["Something went wrong"],
         },
       };
     }
   }
 
-  revalidatePath('/');
+  revalidatePath("/");
   redirect(paths.topicShow(topic.slug));
 }

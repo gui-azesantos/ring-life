@@ -1,12 +1,12 @@
-'use server';
+"use server";
 
-import type { Post } from '@prisma/client';
-import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
-import { z } from 'zod';
-import { auth } from '@/auth';
-import { db } from '@/db';
-import paths from '@/paths';
+import { auth } from "@/auth";
+import { db } from "@/db";
+import paths from "@/paths";
+import type { Post } from "@prisma/client";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import { z } from "zod";
 
 const createPostSchema = z.object({
   title: z.string().min(3),
@@ -27,8 +27,8 @@ export async function createPost(
   formData: FormData
 ): Promise<CreatePostFormState> {
   const result = createPostSchema.safeParse({
-    title: formData.get('title'),
-    content: formData.get('content'),
+    title: formData.get("title"),
+    content: formData.get("content"),
   });
 
   if (!result.success) {
@@ -41,7 +41,7 @@ export async function createPost(
   if (!session || !session.user) {
     return {
       errors: {
-        _form: ['You must be signed in to do this'],
+        _form: ["Você deve estar logado para criar um post."],
       },
     };
   }
@@ -53,7 +53,7 @@ export async function createPost(
   if (!topic) {
     return {
       errors: {
-        _form: ['Cannot find topic'],
+        _form: ["Não foi possível criar o post."],
       },
     };
   }
@@ -78,7 +78,7 @@ export async function createPost(
     } else {
       return {
         errors: {
-          _form: ['Failed to create post'],
+          _form: ["Falha ao criar o post"],
         },
       };
     }

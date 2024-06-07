@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Ring Life | Conectando pessoas pelo bem do planeta
 
-First, run the development server:
+  
+
+Bem-vindo à Plataforma de Integração para o Bem Comum! Esta é uma aplicação desenvolvida para promover a integração de pessoas em prol do bem comum, permitindo que os usuários registrem suas atividades diárias relacionadas aos princípios ambientais, sociais e de governança (ESG) e compartilhem-nas com outros, contribuindo para um mundo melhor.
+
+  
+
+## Arquitetura da Aplicação
+
+  
+
+A arquitetura da nossa aplicação é composta por uma plataforma web desenvolvida com Next.js, que utiliza o banco de dados SQLite para armazenamento de dados.
+
+  
+
+### Plataforma Web (Next.js)
+
+  
+
+A plataforma web é desenvolvida utilizando o framework Next.js, que permite a criação de aplicações web modernas com renderização do lado do servidor (SSR) e geração de páginas estáticas. Esta escolha proporciona uma experiência de desenvolvimento mais rápida e eficiente, além de uma melhor performance da aplicação.
+
+  
+
+### Tecnologias Utilizadas
+
+  
+
+-  **Next.js:** Framework de desenvolvimento web baseado em React, que oferece SSR e geração de páginas estáticas.
+
+-  **React:** Biblioteca JavaScript para construção de interfaces de usuário.
+
+-  **SQLite:** Banco de dados relacional leve e eficiente, perfeito para aplicações web de menor escala.
+
+  
+
+## Componentes
+
+  
+
+-  **Front-end:** Desenvolvido com React e estilizado utilizando CSS e possivelmente bibliotecas como Tailwind CSS ou Styled Components.
+
+-  **Back-end:** Utilizando as funcionalidades de API routes do Next.js para criar endpoints que interagem com o banco de dados SQLite.
+
+-  **Banco de Dados:** SQLite, que armazenará informações essenciais para a plataforma, como perfis de usuários, postagens, comentários e votos.
+
+  
+
+## Como Executar Localmente
+
+  
+
+Este é um projeto [Next.js](https://nextjs.org/) inicializado com [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+  
+
+### Iniciando o Servidor de Desenvolvimento
+
+  
+
+Primeiro, execute o servidor de desenvolvimento:
+
+  
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+npm  run  dev
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# ou
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+yarn  dev
 
-## Learn More
+# ou
 
-To learn more about Next.js, take a look at the following resources:
+pnpm  dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# ou
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+bun  dev
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  
+Abra  http://localhost:3000  em  seu  navegador  para  ver  o  resultado.
